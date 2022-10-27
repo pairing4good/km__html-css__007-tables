@@ -36,25 +36,20 @@ afterEach(async () => {
   await browser.close();
 });
 
-describe("the form", () => {
-  it("should tab to the age input first", async () => {
-    const tabindex = await page.$$eval('form > input[id="age"]', (inputs) => {
-      return inputs[0].getAttribute("tabindex");
-    });
-    expect(tabindex).toBe("1");
+describe("the webpage", () => {
+  it("should contain a table", async () => {
+    const tables = await page.$$("table");
+    expect(tables.length).toBe(1);
   });
+});
 
-  it("should tab to the name input second", async () => {
-    const tabindex = await page.$$eval('form > input[id="name"]', (inputs) => {
-      return inputs[0].getAttribute("tabindex");
-    });
-    expect(tabindex).toBe("2");
+describe("the table", () => {
+  it("should contain a header row with three columns", async () => {
+    const headerRows = await page.$$("tr > th");
+    expect(headerRows.length).toBe(3);
   });
-
-  it("should tab to the city input first", async () => {
-    const tabindex = await page.$$eval('form > input[id="city"]', (inputs) => {
-      return inputs[0].getAttribute("tabindex");
-    });
-    expect(tabindex).toBe("3");
+  it("should contain two rows of data", async () => {
+    const headerRows = await page.$$("tr > td");
+    expect(headerRows.length).toBe(6);
   });
 });

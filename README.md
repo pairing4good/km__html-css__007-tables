@@ -1,7 +1,6 @@
 The `index.html` file
-- should tab to the age input first
-- should tab to the name input second
-- should tab to the city input third
+- should have a table with 3 columns that have headings
+- should have a table with 2 rows of data
 
 Resources:
-- https://www.w3schools.com/tags/att_global_tabindex.asp
+- https://www.w3schools.com/html/html_tables.asp
